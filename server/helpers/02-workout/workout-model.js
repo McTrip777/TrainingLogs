@@ -9,27 +9,27 @@ module.exports = {
 }
 
 function find(){
-    return db('workouts')
+    return db('workout')
 }
 
 function findById(id) {
-    return db('workouts')
+    return db('workout')
       .where({ id })
       .first();
   }
 
 async function add(workout){
-    const [id] = await db('workouts').insert(workout);
+    const [id] = await db('workout').insert(workout);
 
-    return db('workouts').where({ id }).first()
+    return db('workout').where({ id }).first()
 }
 
 function destroy(id){
-    return db('workouts').where({ id }).del()
+    return db('workout').where({ id }).del()
 }
 
 function update(id, changes) {
-    return db('workouts')
+    return db('workout')
       .where({ id })
       .update(changes);
   }
